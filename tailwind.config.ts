@@ -9,8 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
+        '2xl': '1024px',
         'sm': {'max': '640px'},
         'lg': {'max': '1024px'},
+        'xl': {'max': '1188px'}
       },
       fontFamily: {
         integralCF: ["integralCF", 'sans-serif'],

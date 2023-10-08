@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Providers } from '@/components/Providers'
 
 const satoshi = localFont({
   src: [
@@ -36,17 +37,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <body className={satoshi.className + ' flex flex-col h-[100vh]'}>
-        <header className="fixed top-0 left-0 right-0">
-          <Banner />
-          <Navbar />
-        </header>
-        <main className="flex-auto mt-[111.15px] sm:mt-[100px]">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <header className="fixed top-0 left-0 right-0 z-50">
+            <Banner />
+            <Navbar />
+          </header>
+          <main className="flex-auto mt-[134px] sm:mt-[100px]">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

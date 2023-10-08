@@ -16,3 +16,19 @@ body {
 .container {
   @apply mx-auto my-0 max-w-[86.11%] sm:max-w-[91.79%];
 }
+
+h1, h2 {
+  @apply font-integralCF
+}
+
+h1 {
+  @apply text-[64px] sm:text-[36px] leading-none;
+}
+
+h2 {
+  @apply text-5xl sm:text-[32px];
+}
+
+p {
+  @apply text-base opacity-60 sm:text-sm;
+}

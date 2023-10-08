@@ -4,13 +4,17 @@ import Link from "next/link"
 import Image from "next/image"
 import { categories } from "@/constants"
 import { useState } from "react"
+import { useSession } from "next-auth/react"
+import { signIn, signOut } from "next-auth/react"
 
 const Navbar = () => {
   const [openedSearch, setOpenedSearch] = useState(false);
   const [openedMenu, setOpenedMenu] = useState(false);
 
+  const session = useSession();
+
   return (
-    <nav className="py-6 sm:py-5">
+    <nav className="py-6 sm:py-5 bg-white">
       <div className="container flex items-center gap-10 lg:justify-between">
         <div className="flex items-center lg:gap-4">
           <button onClick={() => setOpenedMenu(prev => !prev)} className="hidden lg:block lg:z-50">
@@ -78,14 +82,25 @@ const Navbar = () => {
                 alt="Cart"
               />
           </Link>
-          <Link href="/">
-              <Image
-                src="/profile.svg"
-                width={24}
-                height={24}
-                alt="Cart"
-              />
-          </Link>
+          {
+            session?.data ?
+            <button onClick={() => signOut()}>
+                <Image
+                  src="/exit.svg"
+                  width={24}
+                  height={24}
+                  alt="Sign Out"
+                />
+            </button> :
+            <button onClick={() => signIn()}>
+                <Image
+                  src="/profile.svg"
+                  width={24}
+                  height={24}
+                  alt="Sign In"
+                />
+            </button>
+          }
         </div>
       </div>
     </nav>
