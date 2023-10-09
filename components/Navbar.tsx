@@ -35,7 +35,7 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <ul className={"flex items-center gap-6 lg:fixed lg:bg-white sm:w-[75%] lg:h-[200vh] lg:shadow-2xl lg:flex-col lg:items-start lg:px-20 sm:px-10 lg:pt-[800px] lg:duration-700 " + (openedMenu ? "left-0" : "-left-[100%]")}>
+        <ul className={"flex items-center gap-6 lg:fixed lg:bg-white sm:w-[75%] lg:h-[200vh] lg:shadow-2xl lg:flex-col lg:items-start lg:justify-center lg:px-20 sm:px-10 lg:pt-[400px] lg:duration-700 " + (openedMenu ? "left-0" : "-left-[100%]")}>
           {categories.map(category => (
             <li className="text-base flex items-center gap-1" key={category}>
               {category}
@@ -80,6 +80,7 @@ const Navbar = () => {
                 width={24}
                 height={24}
                 alt="Cart"
+                className="btn"
               />
           </Link>
           {

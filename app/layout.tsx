@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={satoshi.className + ' flex flex-col h-[100vh]'}>
         <Providers>
-          <header className="fixed top-0 left-0 right-0 z-50">
+          <header className="fixed top-0 left-0 right-0 z-[999]">
             <Banner />
             <Navbar />
           </header>
