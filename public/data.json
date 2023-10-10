@@ -1,0 +1,36 @@
+{
+    "new-arrivals": [
+        {
+            "id": 1,
+            "name": "T-SHIRT WITH TAPE DETAILS",
+            "rating": 4,
+            "price": 120,
+            "discount": null,
+            "img": "/clothes/tape-details.png"
+        },
+        {
+            "id": 2,
+            "name": "LOOSE FIT BERMUDA SHORTS",
+            "rating": 3,
+            "price": 80,
+            "discount": 20,
+            "img": "/clothes/fit-jeans.png"
+        },
+        {
+            "id": 3,
+            "name": "CHECKERED SHIRT",
+            "rating": 4,
+            "price": 180,
+            "discount": null,
+            "img": "/clothes/checkered.png"
+        },
+        {
+            "id": 4,
+            "name": "SLEEVE STRIPED T-SHIRT",
+            "rating": 4,
+            "price": 160,
+            "discount": 30,
+            "img": "/clothes/sleeve-striped.png"
+        }
+    ]
+}

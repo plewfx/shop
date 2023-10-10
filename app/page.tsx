@@ -1,17 +1,13 @@
-import { brands, clothes, stats } from "@/constants";
+import Cloth from "@/components/Cloth";
+import { brands, newArrivals, stats, styles, topSelling } from "@/constants";
 import Image from "next/image"
 import Link from "next/link"
 
-function generateStarIcon(starCount: number): string {
-  if (starCount < 0 || starCount > 5) {
-    throw new Error("Star count must be between 0 and 5");
-  }
-
-  const filledStar = "★"; // Full star character
-  const emptyStar = "☆"; // Empty star character
-
-  return filledStar.repeat(starCount) + emptyStar.repeat(5 - starCount);
-}
+const Style = ({ style }) => (
+  <div className="bg-cover bg-right-bottom rounded-[20px] pt-[25px] sm:pt-4 pl-9 sm:pl-6 bg-white" style={{backgroundImage: `url(${style.image})`}}>
+    <h4 className="font-bold text-4xl capitalize">{style.name}</h4>
+  </div>
+)
 
 const Home = () => {
   return (
@@ -82,39 +78,37 @@ const Home = () => {
         <div className="container flex flex-col items-center gap-[55px] pb-16 sm:pb-10 border-b border-opacity-10">
           <h2>NEW ARRIVALS</h2>
           <div className="flex gap-5 sm:gap-4 flex-wrap items-center justify-center">
-            {clothes.map(cloth => (
-              <div className="flex flex-col gap-4 sm:gap-[10px]">
-                <Image
-                  src={cloth.img}
-                  width={295}
-                  height={298}
-                  alt={cloth.name}
-                  className="bg-beige rounded-[20px] sm:rounded-[13px] "
-                />
-                <div className="flex flex-col gap-2 sm:gap-1">
-                  <h5 className="font-bold text-xl sm:text-base">{cloth.name}</h5>
-                  <div className="flex items-center gap-[13px] sm:gap-[11px]">
-                    <div className="flex gap-1 text-amber-400 text-xl">
-                      {generateStarIcon(cloth.rating)}
-                    </div>
-                    <div className="text-sm">{cloth.rating}/<span className="opacity-60">5</span></div>
-                  </div>
-                  {
-                    cloth.discount ? (
-                      <div className="flex gap-[10px] sm:gap-[5px]">
-                        <div className="text-2xl sm:text-xl font-bold">${cloth.price - (cloth.price * (20 / 100))}</div>
-                        <div className="text-2xl sm:text-xl font-bold opacity-40 line-through">${cloth.price}</div>
-                        <div className="flex items-center justify-center text-xs sm:text-[10px] font-medium text-red-500 bg-red-100 rounded-full px-[14px]">-{cloth.discount}%</div>
-                      </div>
-                    ) : (
-                      <div className="text-2xl sm:text-xl font-bold">${cloth.price}</div>
-                    )
-                  }
-                </div>
-              </div>
+            {newArrivals.map(cloth => (
+              <Cloth key={cloth.id} cloth={cloth} />
             ))}
           </div>
           <Link href="/shop" className="text-base font-medium py-4 px-16 border border-opacity-10 rounded-full duration-200 hover:bg-black hover:bg-opacity-10 lg:self-stretch flex justify-center">View All</Link>
+        </div>
+      </section>
+      <section className="pt-[72px] sm:pt-[50px]">
+        <div className="container flex flex-col items-center gap-[55px]">
+          <h2>Top selling</h2>
+          <div className="flex gap-5 sm:gap-4 flex-wrap items-center justify-center">
+            {topSelling.map(cloth => (
+              <Cloth key={cloth.id} cloth={cloth} />
+            ))}
+          </div>
+          <Link href="/shop" className="text-base font-medium py-4 px-16 border border-opacity-10 rounded-full duration-200 hover:bg-black hover:bg-opacity-10 lg:self-stretch flex justify-center">View All</Link>
+        </div>
+      </section>
+      <section className="py-20 sm:py-[50px]">
+        <div className="container flex flex-col items-center gap-16 sm:gap-7 pt-[70px] sm:pt-10 pb-[76px] sm:pb-[27px] bg-zinc-100 rounded-[40px] sm:rounded-[20px] px-16 sm:px-6">
+            <h2>BROWSE BY dress STYLE</h2>
+            <div className="flex flex-col gap-5 sm:gap-4 self-stretch">
+              <div className="grid grid-cols-[4fr_6fr] grid-rows-[289px] gap-5 sm:gap-4 sm:grid-cols-1 sm:grid-rows-[repeat(2,289px)]">
+                <Style style={styles[0]}/>
+                <Style style={styles[1]}/>
+              </div>
+              <div className="grid grid-cols-[6fr_4fr] grid-rows-[289px] gap-5 sm:gap-4 sm:grid-cols-1 sm:grid-rows-[repeat(2,289px)]">
+                <Style style={styles[2]}/>
+                <Style style={styles[3]}/>
+              </div>
+            </div>
         </div>
       </section>
     </>
