@@ -3,7 +3,12 @@ import { brands, newArrivals, stats, styles, topSelling } from "@/constants";
 import Image from "next/image"
 import Link from "next/link"
 
-const Style = ({ style }) => (
+interface Style {
+  name: string,
+  image: string
+}
+
+const Style = ({ style }: Style) => (
   <div className="bg-cover bg-right-bottom rounded-[20px] pt-[25px] sm:pt-4 pl-9 sm:pl-6 bg-white" style={{backgroundImage: `url(${style.image})`}}>
     <h4 className="font-bold text-4xl capitalize">{style.name}</h4>
   </div>
