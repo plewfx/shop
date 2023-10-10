@@ -59,7 +59,7 @@ export const newArrivals = [
         name: "T-SHIRT WITH TAPE DETAILS",
         rating: 4,
         price: 120,
-        discount: null,
+        discount: 0,
         img: "/clothes/tape-details.png",
     },
     {
@@ -75,7 +75,7 @@ export const newArrivals = [
         name: "CHECKERED SHIRT",
         rating: 4.5,
         price: 180,
-        discount: null,
+        discount: 0,
         img: "/clothes/checkered.png",
     },
     {
@@ -102,7 +102,7 @@ export const topSelling = [
         name: "COURAGE GRAPHIC T-SHIRT",
         rating: 4,
         price: 145,
-        discount: null,
+        discount: 0,
         img: "/clothes/courage-graphic.png",
     },
     {
@@ -110,7 +110,7 @@ export const topSelling = [
         name: "CHECKERED SHIRT",
         rating: 4.5,
         price: 180,
-        discount: null,
+        discount: 0,
         img: "/clothes/checkered.png",
     },
     {
