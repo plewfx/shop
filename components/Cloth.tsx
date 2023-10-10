@@ -12,7 +12,17 @@ const generateStars = (starCount: number) => {
   return stars;
 }
 
-const Cloth = ({ cloth }) => {
+
+interface ClothType {
+  id: number,
+  name: string,
+  rating: number,
+  price: number,
+  discount: number,
+  img: string
+}
+
+const Cloth = ({ cloth }: { cloth: ClothType } ) => {
   return (
     <div key={cloth.id} className="flex flex-col gap-4 sm:gap-[10px]">
         <Image
