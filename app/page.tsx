@@ -1,5 +1,6 @@
 import Cloth from "@/components/Cloth";
-import { brands, newArrivals, stats, styles, topSelling } from "@/constants";
+import Review from "@/components/Review";
+import { brands, newArrivals, reviews, stats, styles, topSelling } from "@/constants";
 import Image from "next/image"
 import Link from "next/link"
 
@@ -114,6 +115,21 @@ const Home = () => {
                 <Style style={styles[3]}/>
               </div>
             </div>
+        </div>
+      </section>
+      <section className="pb-10 flex flex-col gap-10 sm:gap-6 relative">
+        <div className="container">
+          <h2>OUR HAPPY CUSTOMERS</h2>
+        </div>
+        <div className="backdrop-blur-sm absolute h-full w-[7%] sm:hidden"></div>
+        <div className="backdrop-blur-sm absolute right-0 h-full w-[7%] sm:hidden"></div>
+        <div className="grid grid-cols-[repeat(5,400px)] grid-rows-1 gap-x-5 overflow-x-scroll pb-10 sm:px-4">
+          {reviews.map(review => (
+            <Review
+              key={review.id}
+              review={review}
+            />
+          ))}
         </div>
       </section>
     </>

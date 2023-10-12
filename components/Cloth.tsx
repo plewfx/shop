@@ -35,8 +35,8 @@ const Cloth = ({ cloth }: { cloth: ClothType } ) => {
         <div className="flex flex-col gap-2 sm:gap-1">
         <h5 className="font-bold text-xl sm:text-base">{cloth.name}</h5>
         <div className="flex items-center gap-[13px] sm:gap-[11px]">
-            <div className="flex gap-1 text-amber-400 text-xl">
-            {generateStars(cloth.rating)}
+            <div className="flex gap-1">
+              {generateStars(cloth.rating)}
             </div>
             <div className="text-sm">{Number.isInteger(cloth.rating) ? cloth.rating + '.0' : cloth.rating}/<span className="opacity-60">5</span></div>
         </div>
